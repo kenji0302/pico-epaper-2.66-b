@@ -1,11 +1,11 @@
 # *****************************************************************************
-# * | File        :	  Pico_ePaper-2.13-B_V4.py
+# * | File        :	  Pico_ePaper-2.13-B_V4.py -> Pico_ePaper-2.66-B_V4.py
 # * | Author      :   Waveshare team
 # * | Function    :   Electronic paper driver
 # * | Info        :
 # *----------------
 # * | This version:   V1.0
-# * | Date        :   2022-08-22
+# * | Date        :   2024-09-23
 # # | Info        :   python demo
 # -----------------------------------------------------------------------------
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,8 +32,8 @@ import framebuf
 import utime
 
 
-EPD_WIDTH       = 122
-EPD_HEIGHT      = 250
+EPD_WIDTH       = 152
+EPD_HEIGHT      = 296
 
 RST_PIN         = 12
 DC_PIN          = 8
@@ -145,22 +145,11 @@ class EPD_2in13_B_V4_Portrait:
         self.send_command(0x12)  #SWRESET
         self.ReadBusy()   
 
-        self.send_command(0x01) #Driver output control      
-        self.send_data(0xf9)
-        self.send_data(0x00)
-        self.send_data(0x00)
-
         self.send_command(0x11) #data entry mode       
         self.send_data(0x03)
 
         self.SetWindows(0, 0, self.width-1, self.height-1)
         self.SetCursor(0, 0)
-
-        self.send_command(0x3C) #BorderWaveform
-        self.send_data(0x05)
-
-        self.send_command(0x18) #Read built-in temperature sensor
-        self.send_data(0x80)
 
         self.send_command(0x21) #  Display update control
         self.send_data(0x80)
@@ -301,22 +290,11 @@ class EPD_2in13_B_V4_Landscape:
         self.send_command(0x12)  #SWRESET
         self.ReadBusy()   
 
-        self.send_command(0x01) #Driver output control      
-        self.send_data(0xf9)
-        self.send_data(0x00)
-        self.send_data(0x00)
-
         self.send_command(0x11) #data entry mode       
         self.send_data(0x07)
 
         self.SetWindows(0, 0, self.width-1, self.height-1)
         self.SetCursor(0, 0)
-
-        self.send_command(0x3C) #BorderWaveform
-        self.send_data(0x05)
-
-        self.send_command(0x18) #Read built-in temperature sensor
-        self.send_data(0x80)
 
         self.send_command(0x21) #  Display update control
         self.send_data(0x80)
@@ -363,7 +341,7 @@ if __name__=='__main__':
     epd.imageblack.fill(0xff)
     epd.imagered.fill(0xff)
     epd.imageblack.text("Waveshare", 0, 10, 0x00)
-    epd.imagered.text("ePaper-2.13B", 0, 25, 0x00)
+    epd.imagered.text("ePaper-2.66B", 0, 25, 0x00)
     epd.imageblack.text("RPi Pico", 0, 40, 0x00)
     epd.imagered.text("Hello World", 0, 55, 0x00)
     epd.display()
@@ -389,7 +367,7 @@ if __name__=='__main__':
     epd.imageblack.fill(0xff)
     epd.imagered.fill(0xff)
     epd.imageblack.text("Waveshare", 0, 10, 0x00)
-    epd.imagered.text("ePaper-2.13B", 0, 20, 0x00)
+    epd.imagered.text("ePaper-2.66B", 0, 20, 0x00)
     epd.imageblack.text("Raspberry Pico", 0, 30, 0x00)
     epd.imagered.text("Hello World", 0, 40, 0x00)
     epd.display()
