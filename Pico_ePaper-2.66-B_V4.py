@@ -40,7 +40,7 @@ DC_PIN          = 8
 CS_PIN          = 9
 BUSY_PIN        = 13
 
-class EPD_2in16_B_V4_Portrait:
+class EPD_2in66_B_V4_Portrait:
     def __init__(self):
         self.reset_pin = Pin(RST_PIN, Pin.OUT)
         
@@ -185,7 +185,7 @@ class EPD_2in16_B_V4_Portrait:
         self.delay_ms(2000)
         self.module_exit()
         
-class EPD_2in13_B_V4_Landscape:
+class EPD_2in66_B_V4_Landscape:
     def __init__(self):
         self.reset_pin = Pin(RST_PIN, Pin.OUT)
         
@@ -335,7 +335,7 @@ class EPD_2in13_B_V4_Landscape:
         self.module_exit()
         
 if __name__=='__main__':
-    epd = EPD_2in13_B_V4_Portrait()
+    epd = EPD_2in66_B_V4_Portrait()
     epd.Clear(0xff, 0xff)
     
     epd.imageblack.fill(0xff)
@@ -361,7 +361,7 @@ if __name__=='__main__':
     epd.display()
     epd.delay_ms(2000)
 
-    epd = EPD_2in13_B_V4_Landscape()
+    epd = EPD_2in66_B_V4_Landscape()
     epd.Clear(0xff, 0xff)
 
     epd.imageblack.fill(0xff)
