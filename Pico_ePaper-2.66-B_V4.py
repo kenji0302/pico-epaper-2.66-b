@@ -40,7 +40,7 @@ DC_PIN          = 8
 CS_PIN          = 9
 BUSY_PIN        = 13
 
-class EPD_2in13_B_V4_Portrait:
+class EPD_2in16_B_V4_Portrait:
     def __init__(self):
         self.reset_pin = Pin(RST_PIN, Pin.OUT)
         
